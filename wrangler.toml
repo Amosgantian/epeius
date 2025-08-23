@@ -3,31 +3,22 @@ main = "_worker.js"
 compatibility_date = "2025-08-23"
 type = "javascript"
 
-# 可选：生产环境 / 预览环境
-# [env.production]
+# -------------------------------
+# 生产环境
+[env.production]
 # route = "https://your-production-domain/*"
 # zone_id = "your-production-zone-id"
 
-# 不写 route 或 routes
-[env.production]
-# route = "https://your-domain.com/*"
+[[env.production.kv_namespaces]]
+binding = "bpb1"            # Worker 内访问 KV 的名字
+id = "3eeaf8b9722a469a8f6fe4e019b396bc"  # KV namespace ID，从 UI 获取
 
+# -------------------------------
+# 预览环境
 [env.preview]
 # route = "https://dev.example.com/*"
 # zone_id = "your-preview-zone-id"
 
-# ✅ 注意：
-# 不要在这里声明 vars，否则会覆盖 UI 环境变量
-# KV/Secrets 绑定在 UI 或 wrangler secret 里，deploy 时不会被覆盖
-
-# KV 命名空间绑定，绑定 UI 已存在的命名空间
-[[env.production.kv_namespaces]]
-binding = "bpb1"          # Worker 中使用的绑定名
-id = "3eeaf8b9722a469a8f6fe4e019b396bc" # KV namespace ID，从 UI 获取
-
-[env.preview]
 [[env.preview.kv_namespaces]]
 binding = "bpb1"
 id = "3eeaf8b9722a469a8f6fe4e019b396bc"
-
-
