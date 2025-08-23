@@ -4,14 +4,19 @@ compatibility_date = "2025-08-23"
 type = "javascript"
 
 # 可选：生产环境 / 预览环境
-[env.production]
+# [env.production]
 # route = "https://your-production-domain/*"
 # zone_id = "your-production-zone-id"
 
-[env.preview]
+# 不写 route 或 routes
+# [env.production]
+# route = "https://your-domain.com/*"
+
+# [env.preview]
 # route = "https://dev.example.com/*"
 # zone_id = "your-preview-zone-id"
 
 # ✅ 注意：
 # 不要在这里声明 vars，否则会覆盖 UI 环境变量
 # KV/Secrets 绑定在 UI 或 wrangler secret 里，deploy 时不会被覆盖
+
