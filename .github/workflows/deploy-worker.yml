@@ -29,7 +29,7 @@ jobs:
       - name: Install Wrangler
         run: npm install -g wrangler
 
-      # 4️⃣ 部署 Worker（仅更新脚本，不修改环境变量和 KV）
+      # 4️⃣ 部署 Worker（只更新代码，不覆盖 UI 环境变量和 KV/Secrets）
       - name: Deploy Worker
         id: deploy-worker
         env:
@@ -37,7 +37,6 @@ jobs:
         run: |
           echo "Deploying Worker to environment: ${{ steps.set-env.outputs.env }}"
           wrangler deploy --env ${{ steps.set-env.outputs.env }} --quiet || exit 1
-          # 注意：不使用 --var，也不在 toml 中写 vars
 
       # 5️⃣ GitHub Summary
       - name: Add Deployment Info to GitHub Summary
