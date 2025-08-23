@@ -10,7 +10,7 @@ type = "javascript"
 # zone_id = "your-production-zone-id"
 
 [[env.production.kv_namespaces]]
-binding = "bpb1"            # Worker 内访问 KV 的名字
+binding = "KV"            # Worker 内访问 KV 的名字
 id = "3eeaf8b9722a469a8f6fe4e019b396bc"  # KV namespace ID，从 UI 获取
 
 # -------------------------------
@@ -22,3 +22,4 @@ id = "3eeaf8b9722a469a8f6fe4e019b396bc"  # KV namespace ID，从 UI 获取
 [[env.preview.kv_namespaces]]
 binding = "bpb1"
 id = "3eeaf8b9722a469a8f6fe4e019b396bc"
+
